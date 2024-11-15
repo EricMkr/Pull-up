@@ -1,0 +1,28 @@
+Installation et configuration de Cypress
+
+Avant d'installer l'outil  il est préférable de vérifier si notre machine possède les configurations requises et nous pouvons le faire via le site officiel de Cypress. Une fois l'étape de vérification des caractéristiques systèmes achevé, nou procédons à l'installation effective tout en sachant qu'il y a deux méthodes d'installation en étant sous un système d'exploitation Windows.
+
+# Installation via un gestionnaire de paquets.
+	Cela installera Cypress localement en tant que dépendance de développement pour votre projet. Pou npm, assurez vous que vous avez bien un environnement npm installé et il est possible de le vérifier avec la commande npm -v dans votre invite de commande Windows. Si vous recevez des informations de versions nous pourrons continuer vers l'installation de Cypress. Dans le cas contraire, je vous invite à installer Node.js pour être à jour.
+...
+
+Une fois que vous avez l'environnement npm installé, il suffit de taper ensuite la commande npm install cypress --save-dev.
+
+# Installation via le site officiel.
+L’approche recommandée consiste à installer Cypress avec npm car :
+
+Cypress est versionné comme n’importe quelle autre dépendance.
+Il simplifie l’exécution de Cypress en intégration continue.
+Si vous n’utilisez pas Node ou un gestionnaire de paquets dans votre projet ou si vous souhaitez simplement essayer Cypress rapidement, vous pouvez toujours télécharger Cypress directement depuis notre CDN.
+
+Généralement il est conseillé d'installer et de configurer quasi complètement un logiciel afin de pouvoir l'utiliser pleinement. Nous attaquons donc ensuite la configuration de Cypress en Intégration continue.
+
+# Configuration d'un pipeline CI/CD avec BitBucket
+Bitbucket Pipelines est un service CI/CD intégré à Bitbucket Cloud qui nous permettra de générer, de tester et même de déployer automatiquement notre code sur la base d’un fichier de configuration dans notre dépôt. Essentiellement, ils créent des conteneurs dans le cloud pour nous. Un pipeline est défini à l’aide d’un fichier YAML appelé bitbucket-pipelines.yml, qui se trouve à la racine de notre dépôt.
+...
+
+Une fois la pipeline configurée, nous pouvons enfin lancer Cypress.
+...
+
+# Workflow de tests : ...
+Lors de son installation, Cypress offre des premiers cas et fichiers de tests mais nous nous passerons de ceux-ci. Pour mieux savoir encore de quoi il s'agit, nous allons créer et exécuter nos premiers fichiers de tests automatisés.

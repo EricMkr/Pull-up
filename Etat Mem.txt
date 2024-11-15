@@ -1,0 +1,190 @@
+* Cypress c'est quoi ?
+
+Cypress est un framework moderne et open-source pour l'automatisation des tests, principalement conçu pour tester les applications web. Contrairement à d'autres outils comme Selenium, Cypress fonctionne directement dans le navigateur, ce qui lui permet d'accéder à chaque composant d'une application, d'intercepter les requêtes réseau, de simuler des interactions utilisateur, et d'exécuter des tests en temps réel avec une vitesse et une précision élevées.
+
+Produits proposés par Cypress
+
+-Cypress App, une application gratuite et open source, Application installée localement pour l’écriture et l’exécution de tests.
+
+-Cypress Cloud, un service payant pour l’enregistrement des tests, la mise en évidence des résultats des tests et la fourniture d’analyses de tests.
+
+-UI Coverage, un add-on payant offrant une vue d’ensemble visuelle de la couverture des tests sur chaque page et composant de votre application, offrant des informations claires sur les zones non couvertes que tout le monde peut 
+comprendre. (Perhaps it's why i only see first page then nun testing)
+
+-Cypress Accessibility, un add-on payant fournissant des vérifications d’accessibilité, qui aide à détecter les obstacles pour les personnes handicapées utilisant votre application. (ayo, not sure opening this point)
+
+Cypress est une solution robuste qui peut améliorer la qualité de votre application et elle est assez légère à appréhender. On s'interessera donc ici dans un premier temps au produit Cypress App que l'on étudiera 
+
+Cypress fournit principalement des solutions pour :
+- Tests de bout en bout
+- Essais de composants
+- Tests d’accessibilité
+- Couverture de l’assurance-chômage
+- et plus encore...
+
+Cypress peut tester tout ce qui s’exécute dans un navigateur et faire apparaître des informations sur la façon d’améliorer la santé de votre suite de tests et de la qualité de votre application.
+
+Quelles sont les fonctionnalités que Cypress App propose concrètement ?
+
+- Voyage dans le temps : Cypress prend des instantanés pendant l’exécution de vos tests. Survolez dans le journal des commandes pour voir exactement ce qui s’est passé à chaque étape.
+
+- Débogage : Arrêtez de deviner pourquoi vos tests échouent. Déboguez directement à partir d’outils familiers tels que Developer Outils. Nos erreurs lisibles et nos traces de pile rendent le débogage rapide comme l’éclair.
+
+- Attente automatique : N’ajoutez jamais d’attentes ou de sommeils à vos tests. Cypress attend automatiquement les commandes et les assertions avant de passer à autre chose. Plus d’enfer asynchrone.
+
+- Espions, talons et horloges : Vérifier et contrôler le comportement des fonctions, réponses du serveur, ou minuteries. Les mêmes fonctionnalités que celles que vous aimez dans les tests unitaires est à portée de main.
+
+- Contrôle du trafic réseau : Contrôlez, fixez et testez facilement les cas limites sans impliquant votre serveur. Vous pouvez bloquer le trafic réseau comme vous le souhaitez.
+
+- Résultats cohérents : Notre architecture n’utilise pas Selenium ou WebDriver. Dites bonjour à des tests rapides, cohérents et fiables, sans écailles.
+
+- Tests multi-navigateurs : Exécutez des tests dans les navigateurs tels que Chrome, Edge mais également Electron, tout ceci localement et dans un pipeline d’intégration continue.
+
+### Caractéristiques principales de Cypress :
+1. **Test en temps réel** : Cypress met à jour les tests en temps réel, ce qui permet aux développeurs de voir immédiatement l'état du test et les erreurs qui surviennent.
+   
+2. **Débogage intuitif** : Il propose une console de débogage intégrée dans le navigateur, permettant aux développeurs de visualiser facilement les états de l'application et les logs, et de naviguer dans l'historique des actions effectuées pendant le test.
+
+3. **Écriture simplifiée des tests** : Cypress utilise JavaScript, un langage courant pour les développeurs front-end, rendant l'écriture des tests plus intuitive et accessible. De plus, il fournit des commandes simples pour simuler les actions utilisateur comme le clic, la saisie de texte, ou le déplacement.
+
+4. **Manipulation des requêtes réseau** : Cypress peut intercepter et manipuler les requêtes réseau pour simuler différentes conditions, comme les erreurs serveur ou la latence réseau. Cela permet de tester des scénarios divers et de vérifier la robustesse de l'application.
+
+5. **Prise en charge native de l'asynchronisme** : Les tests écrits avec Cypress attendent automatiquement la fin des actions asynchrones, ce qui réduit les erreurs dues à des timings imprévisibles, comme les chargements de page ou les animations.
+
+### Avantages de Cypress par rapport à d’autres outils :
+- **Installation et configuration simplifiées** : Cypress est facile à installer et à configurer, avec une installation rapide via npm (Node Package Manager).
+- **Exécution rapide** : Grâce à son intégration directe avec le navigateur, il peut exécuter les tests de manière très rapide et en parallèle.
+- **Facilité de débogage** : Avec Cypress, les erreurs peuvent être déboguées directement dans le navigateur, ce qui réduit le temps de recherche des erreurs.
+
+Cypress est particulièrement apprécié pour sa capacité à rendre les tests front-end plus faciles, plus rapides et plus fiables, ce qui en fait un outil privilégié pour les équipes de développement axées sur la qualité du front-end et les interfaces utilisateur.
+
+* Mise en place d'un environnement de test de logiciels avec Cypress
+
+L'environnement de testeur orienté Cypress s'appuie sur l'usage de 3  outils tels que : 
+
+I / Node.js
+	Node.js est un environnement d'exécution JavaScript côté serveur qui permet aux développeurs d'utiliser JavaScript pour créer des applications backend. Notamment réputé pour être rapide et efficace dans la gestion des applications en temps réel, des requêtes réseau et des systèmes d'entrées/sorties intensives.
+
+### Principales caractéristiques de Node.js
+1. **Architecture non bloquante et asynchrone** : Node.js utilise un modèle d'entrées/sorties non bloquant, ce qui signifie que les opérations peuvent s'exécuter sans attendre la fin des précédentes. Cela le rend particulièrement performant pour les applications nécessitant un grand nombre de requêtes simultanées, comme les applications de chat en temps réel ou les systèmes de streaming.
+
+2. **Évolutivité** : Grâce à son modèle basé sur des événements, Node.js est capable de gérer des milliers de connexions simultanées, ce qui le rend particulièrement adapté pour les applications nécessitant une grande scalabilité.
+
+3. **Écosystème riche de modules** : Node.js dispose d'un gestionnaire de paquets appelé **npm** (Node Package Manager), qui offre des milliers de bibliothèques et de modules permettant d’étendre ses fonctionnalités sans avoir à écrire du code depuis zéro.
+
+### À quoi sert Node.js ?
+Node.js est utilisé pour créer divers types d'applications, notamment :
+
+- **Applications en temps réel** : Des applications de chat, des systèmes de notifications en direct, ou des jeux en ligne, où une communication rapide et bidirectionnelle entre le client et le serveur est cruciale.
+
+- **API RESTful et services backend** : Node.js est largement utilisé pour construire des API RESTful, permettant de créer et de gérer des services de backend qui interagissent avec des bases de données et d'autres ressources.
+
+- **Outils de développement** : Node.js est également employé pour créer des outils de développement comme les gestionnaires de paquets, les scripts de construction, et d'autres utilitaires utilisés dans le développement logiciel.
+
+### Pourquoi choisir Node.js ?
+Node.js est souvent préféré pour ses performances élevées, sa capacité à gérer de grandes charges de trafic, et pour sa flexibilité dans les applications nécessitant une communication en temps réel. Grâce à son architecture légère et rapide, il est devenu un choix populaire pour les startups comme pour les grandes entreprises.
+
+## Comment installer Node.js ?
+Il existe plusieurs méthodes pour installer Node.js en fonction de votre système d'exploitation, de vos besoins (environnement de production ou de développement) et de votre préférence pour la gestion des versions. Voici les méthodes d'installation les plus courantes :
+
+1. Installer Node.js avec le programme d'installation officiel
+Allez sur le site officiel de Node.js nodejs.org et téléchargez l'installateur pour votre système d'exploitation (Windows, macOS ou Linux). Un fois sur le site officiel, il faudra cliquer sur le bouton "Télécharger Node.js (LTS)", ce qui nous permettra d'obtenir la version v22.11.0 étant la plus adaptée aujourd'hui car plus stable. 
+Une fois le téléchargement terminé, exécutez le programme d’installation et suivez les instructions à l’écran.
+Cette méthode est simple et rapide, mais elle ne permet pas de gérer plusieurs versions de Node.js facilement. 
+
+2. Utiliser un gestionnaire de versions de Node (nvm)
+nvm (Node Version Manager) est un gestionnaire de versions Node.js qui permet d’installer et de basculer entre différentes versions de Node.js sur le même système.
+Pour l'installer, téléchargez nvm depuis le dépôt officiel sur GitHub et suivez les instructions.
+Une fois nvm installé, vous pouvez utiliser des commandes comme nvm install <version> pour installer une version spécifique de Node.js, et nvm use <version> pour basculer entre les versions.
+Cette méthode est idéale pour les développeurs qui ont besoin de tester des applications sur différentes versions de Node.js.
+
+3. Installer via un gestionnaire de paquets
+Sur Linux :
+Vous pouvez utiliser les gestionnaires de paquets comme apt (pour les distributions basées sur Debian comme Ubuntu) ou dnf (pour Fedora).
+Par exemple, sur Ubuntu :
+
+bash
+Copier le code
+sudo apt update
+sudo apt install nodejs
+
+Il est souvent recommandé d’ajouter le dépôt officiel de NodeSource pour obtenir la dernière version :
+
+bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+
+Sur macOS :
+
+- Utilisez Homebrew, un gestionnaire de paquets populaire sur macOS.
+- Installez Node.js avec la commande :
+
+bash
+brew install node
+
+Cette méthode est rapide et bien adaptée pour des installations stables, mais elle peut ne pas inclure les dernières versions.
+
+4. Installer avec Docker
+Si vous travaillez avec des conteneurs, vous pouvez utiliser Docker pour créer un environnement Node.js sans l'installer directement sur votre système.
+Créez un fichier Dockerfile avec l’image Node.js, par exemple :
+
+dockerfile
+FROM node:18
+
+Cette méthode est utile pour isoler les environnements et garantir que votre application tourne de manière cohérente sur différents systèmes.
+
+5. Installer Node.js depuis le code source
+Cette méthode est plus complexe et est rarement utilisée sauf si vous avez besoin de personnaliser Node.js ou d’utiliser une version spécifique qui n’est pas disponible autrement.
+Téléchargez le code source depuis le dépôt officiel, puis compilez-le :
+
+bash
+./configure
+make
+sudo make install
+
+Cette méthode est idéale pour les environnements spécialisés ou pour ceux qui contribuent directement au développement de Node.js.
+En général, les méthodes les plus courantes et pratiques sont l’utilisation de nvm ou des gestionnaires de paquets, qui simplifient la gestion des versions et les mises à jour.
+
+Ensuite pour vérifier que vous avez éffectivement installé Node.js, dans le cas d'un OS Windows :
+- nous ouvrirons l'invite de commande encore plus communément appelé cmd pour taper ensuite les commandes :
+- node -v qui nous affichera la version de Node.js présente dans notre système.
+- npm -v qui nous affichera la version de Node Package Manager présente dans notre système.
+
+II / Visual Studio Code
+Visual Studio et Visual Studio Code sont deux outils de développement créés par Microsoft, mais ils ont des objectifs et des fonctionnalités différentes.
+
+1. Visual Studio
+Visual Studio est un environnement de développement intégré (IDE) complet, principalement conçu pour le développement de logiciels complexes, particulièrement sur les technologies Microsoft et .NET (C#, ASP.NET, etc.). Il est principalement utilisé pour :
+
+Le développement d’applications de grande envergure, comme les applications de bureau, les jeux (via Unity), et les applications mobiles.
+La prise en charge de plusieurs langages, dont C#, C++, F#, et bien d’autres.
+Des fonctionnalités avancées pour le débogage, les tests unitaires, et la gestion de projets en équipe.
+Des outils intégrés pour le développement et le déploiement d'applications sur le cloud (notamment sur Azure).
+Visual Studio est un outil puissant mais souvent plus lourd, et il est majoritairement utilisé par les développeurs qui travaillent sur des projets nécessitant une grande complexité.
+
+2. Visual Studio Code
+Visual Studio Code, souvent abrégé en VS Code, est un éditeur de code source léger et flexible, conçu pour être rapide et personnalisable. Contrairement à Visual Studio, VS Code est plutôt un éditeur de texte avancé qu'un IDE complet.
+
+Fonctionnalités et utilisations principales de Visual Studio Code :
+- Édition de code source : Il prend en charge une large gamme de langages de programmation, comme JavaScript, Python, TypeScript, Go, et bien d’autres, avec la possibilité d’ajouter des extensions pour d’autres langages.
+- Personnalisation avec les extensions : VS Code a un écosystème d’extensions très riche, permettant aux développeurs d’ajouter des fonctionnalités supplémentaires, comme le débogage, le contrôle de version, le formatage de code, et même l’intégration avec des services cloud.
+- Développement web et JavaScript : Il est très populaire pour le développement web grâce à des fonctionnalités intégrées comme l’auto-complétion, le débogage JavaScript, et l’intégration avec des outils de développement frontend.
+- Interface de ligne de commande intégrée : Il offre un terminal intégré qui permet aux développeurs de lancer des commandes directement depuis l'éditeur, facilitant l'exécution de scripts, de commandes Git, ou encore de commandes de gestion de packages comme npm.
+- Débogage : Il propose un environnement de débogage basique, idéal pour les projets JavaScript, Python, et Node.js, entre autres, avec des points d’arrêt et l’inspection des variables.
+- Contrôle de version : Il intègre des outils de contrôle de version comme Git, ce qui permet aux développeurs de gérer leur code source directement dans l’éditeur.
+
+Pourquoi utiliser Visual Studio Code ?
+VS Code est largement utilisé pour son léger, sa vitesse et son extensibilité. Il est idéal pour :
+
+- Les développeurs front-end et back-end.
+- Les projets légers ou les prototypes.
+ -Ceux qui veulent un éditeur personnalisable avec des outils de développement modernes.
+- Ceux qui recherchent un éditeur multiplateforme, car VS Code est disponible sur Windows, macOS et Linux.
+En résumé, Visual Studio est un IDE complet pour des projets complexes, tandis que Visual Studio Code est un éditeur léger et modulaire, particulièrement adapté aux développeurs de web et de projets nécessitant de la flexibilité.
+
+# Comment installer Visual Studio Code ?
+Visual Studio code est en principe très facile d'acquisition et d'accès et nous avons la possibilité de l'obtenir en suivant les étapes qui suivent ce magnifique paragraphe introductif qui sera brutalement interrompu par :
+
+-
+
+
