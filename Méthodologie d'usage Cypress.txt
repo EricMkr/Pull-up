@@ -1,0 +1,80 @@
+La méthodologie par excellence à adopter pour optimiser l'usage de l'outil Cypress ?
+
+1. Créer une structure claire pour nos tests : 
+
+cypress/
+  fixtures/    // Données statiques (mocks)
+  integration/ // Scripts de test
+  plugins/     // Plugins Cypress
+  support/     // Fonctions réutilisables
+
+Mettre en place des tests de base pour couvrir les fonctionnalités principales (ex. : connexion, navigation, actions principales, etc..).
+
+2. Adopter une approche modulaire
+
+- Réutilise le code autant que possible :
+- Crée des fonctions génériques dans le dossier support/commands.js pour des actions fréquentes, comme la connexion ou le remplissage de formulaires.
+
+Ex:
+// Exemple de test de connexion.
+Cypress.Commands.add('login', (username, password) => {
+  cy.visit('/login');
+  cy.get('#username').type(username);
+  cy.get('#password').type(password);
+  cy.get('button[type="submit"]').click();
+});
+
+Cette approche nous permettra donc d'éviter de reécrire les tests à chaque fois. 
+
+3. Écrire des tests évolutifs
+
+Commence petit : Rédige des tests simples pour les fonctionnalités critiques, puis étends-les progressivement.
+
+Ex :
+// Exemple d’un test pour vérifier le titre de la page :
+describe('Home Page', () => {
+  it('should display the correct title', () => {
+    cy.visit('/');
+    cy.title().should('include', 'Mon Application');
+  });
+});
+
+4. Automatiser et intégrer avec un pipeline CI/CD
+
+Automatisation des tests : Exécute tes scripts Cypress automatiquement à chaque mise à jour de ton code.
+Utilise des outils comme GitHub Actions, Jenkins, ou GitLab CI pour intégrer tes tests Cypress dans un pipeline.
+
+Exemple de configuration dans .github/workflows/cypress.yml :
+
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Run Cypress tests
+        run: npm run cypress:run
+
+Cette méthode nous permettra de couvrir régulièrement les tests de regression.
+
+5.  Adopter une routine pour les mises à jour des tests
+
+Stratégie proactive :
+Lors de l'ajout ou de la modification d'une fonctionnalité dans l’application, écris immédiatement les tests associés.
+Exemple : Pour chaque ticket dans ton workflow (ex. : Jira ou Trello), associe une tâche “Mettre à jour/écrire les tests Cypress”.
+Détection de changements : Utilise des tests de régression pour repérer les effets secondaires des mises à jour du code.
+
+6. Utiliser des outils complémentaires pour te guider
+
+Extensions IDE : Des plugins comme Cypress Snippets dans VS Code offrent de l’autocomplétion et des modèles pour accélérer l’écriture de tests.
+Générateurs de tests : Certains outils peuvent générer automatiquement des tests Cypress en naviguant dans ton application.
+
+
