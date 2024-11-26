@@ -1,0 +1,17 @@
+Il serait insensé d'aborder un sujet sans au préalable s'acquitter de ses définitions.
+
+Installation, configuration node, vscode, git. Initialisation du dépôt local. configuration  git config --global @..., création du dépôt en local. créer les différentes branches(feature,dev,test,etc...). accéder à sa branche perso. lier le dépôt local au dépôt en ligne avec git remote add origin @. Initialiser le dépôt en ligne. git status. git add pour ajouter des fichiers au dépôt. git commit -m " " pour y associer des messages informatifs. git push. Nous sommes parés à entrer dans les commandes complexes de notre étude.
+
+configuration cypress.config.js. configuration e2e.js
+
+ouvrir cypress npx cypress open.
+écriture test natif describe('Landing Page Test')
+beforeEach()
+  cy visit('url')
+
+décrire ce qu'on voit, décrire ce qu'on veut tester/ce qu'on attends. écrire un algo correspondant à côté pour mieux structurer les tests.
+par ex: 
+it('Navigation')   {
+  cy.get('navbar).should()
+  cy get()
+}
