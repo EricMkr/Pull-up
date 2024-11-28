@@ -1,0 +1,85 @@
+CHAPITRE 3 : REALISATION
+
+1. Introduction
+Projet : Test d’automatisation des fonctionnalités de [nom de l'application/site web].
+Objectif : Assurer la qualité en validant les fonctionnalités critiques et détecter les anomalies avant déploiement.
+Outil utilisé : Cypress (version x.x).
+
+2. Configuration de l'environnement
+Système d'exploitation : Windows 10 / Linux Ubuntu 20.04 / macOS Ventura.
+Node.js : Version 16.x.
+Cypress : Version 12.x.
+Navigateur : Google Chrome 117.x.
+
+3. Scénarios de test
+ID	| Nom du test	               | Description									| Type		| Priorité
+TC001	| Authentification utilisateur | Vérifier que l'utilisateur peut se connecter avec des identifiants valides.    | Fonctionnel   | Haute
+TC002	| Navigation du menu principal | Vérifier que les liens du menu redirigent vers les pages correctes.	        | Interface	| Moyenne
+TC003	| Création d’un compte         | Vérifier que le formulaire de création de compte fonctionne correctement.      | Fonctionnel	| Haute
+TC004	| Recherche produit            | Vérifier que la recherche retourne les résultats pertinents.	                | Fonctionnel	| Moyenne
+TC005	| Accessibilité                | Vérifier la conformité avec les règles WCAG 2.1 pour les composants critiques. | Accessibilité | Faible
+
+4. Résultats des tests
+ID	Nom du test	Statut	Durée (s)	Observations
+TC001	Authentification utilisateur	Réussi	1.32	Aucune anomalie détectée.
+TC002	Navigation du menu principal	Échoué	0.89	Le lien "Contact" redirige vers une 404.
+TC003	Création d’un compte	Réussi	2.45	Validation correcte des champs requis.
+TC004	Recherche produit	Réussi	1.78	Résultats pertinents pour toutes les requêtes.
+TC005	Accessibilité	Avertissement	3.12	Contrastes faibles détectés dans le menu.
+
+5. Méthodologie
+Les tests ont été écrits en utilisant Cypress e2e.
+Structure :
+Les tests sont organisés par modules (authentification, navigation, recherche).
+Chaque test est regroupé dans des fichiers spécifiques sous cypress/e2e/.
+Exemple de script :
+javascript
+Copier le code
+describe('Authentification utilisateur', () => {
+  it('Connexion avec des identifiants valides', () => {
+    cy.visit('https://example.com/login');
+    cy.get('#username').type('user@example.com');
+    cy.get('#password').type('securePassword123');
+    cy.get('button[type="submit"]').click();
+    cy.url().should('include', '/dashboard');
+  });
+});
+
+6. Analyse et recommandations
+Points forts :
+Les tests e2e ont validé les scénarios critiques (connexion, recherche, etc.).
+Le framework Cypress a permis une exécution rapide et fiable.
+Points à améliorer :
+Ajouter des tests pour les cas limites (ex. : mots de passe incorrects, pages d'erreur).
+Intégrer des outils comme Axe pour automatiser les tests d'accessibilité.
+
+7. Rapport technique
+Résumé des résultats :
+
+Total de tests : 5
+Réussis : 3
+Échoués : 1
+Avertissements : 1
+Durée totale : 9.56 s.
+
+Fichier de sortie : Les résultats des tests sont disponibles au format JSON dans cypress/results/test-results.json. Exemple d’entrée :
+
+json
+Copier le code
+[
+  {
+    "title": "Authentification utilisateur",
+    "state": "passed",
+    "duration": 1320,
+    "error": null
+  },
+  {
+    "title": "Navigation du menu principal",
+    "state": "failed",
+    "duration": 890,
+    "error": "Page 404 détectée pour le lien Contact."
+  }
+]
+
+8. Conclusion
+Les tests automatisés ont permis de valider une majorité des fonctionnalités critiques. Cependant, des problèmes mineurs subsistent, notamment sur les redirections et la conformité aux normes d'accessibilité. Il est recommandé de résoudre ces problèmes avant la mise en production.
